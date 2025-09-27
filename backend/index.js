@@ -236,7 +236,7 @@ function getEmailBody(payload) {
 // AI function to extract details using the latest Google Gemini model
 async function extractDetailsWithAI(emailText) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"});
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash"});
     const prompt = `
       You are an expert data extraction bot. Analyze the following email text and extract these specific details.
       Respond ONLY with a valid JSON object. Do not include any text before or after the JSON object.
@@ -322,6 +322,7 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Backend server is running on http://localhost:${PORT}`);
 });
+
 
 
 
