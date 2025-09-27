@@ -299,7 +299,7 @@ export default function App() {
   const handleLogout = useCallback(() => {
     localStorage.removeItem('subsleuth_token');
     setAuthToken(null);
-    setScanData(null);
+    setScanData(null); 
     setError(null);
     setPageView('landing');
   }, []);
