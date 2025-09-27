@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF--8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SubSleuth - Find All Your Subscriptions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #060010;
+        color: #e5e7eb;
+      }
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .aurora-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .aurora-bg::before, .aurora-bg::after {
+        content: "";
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        background-image: radial-gradient(circle, rgba(106, 13, 173, 0.5) 0%, rgba(106, 13, 173, 0) 60%);
+        border-radius: 50%;
+        animation: animateAurora 15s linear infinite;
+        opacity: 0.5;
+        filter: blur(100px);
+      }
+      .aurora-bg::after {
+        background-image: radial-gradient(circle, rgba(74, 68, 242, 0.4) 0%, rgba(74, 68, 242, 0) 60%);
+        animation-delay: -7s;
+        top: 20%;
+        left: 30%;
+      }
+      @keyframes animateAurora {
+        0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+        50% { transform: translate(-20%, -30%) scale(1.2) rotate(180deg); }
+        100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "chart.js": "https://aistudiocdn.com/chart.js@^4.5.0",
+    "react-chartjs-2": "https://aistudiocdn.com/react-chartjs-2@^5.3.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
