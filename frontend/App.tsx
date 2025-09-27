@@ -284,7 +284,7 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [isLoginLoading, setIsLoginLoading] = useState<boolean>(false);
 
-  const API_BASE_URL = 'http://localhost:3000';
+  const API_BASE_URL = 'https://subsleuth-backend.onrender.com';
   
   const handleFetchError = (err: unknown): string => {
     if (err instanceof TypeError && err.message === 'Failed to fetch') {
