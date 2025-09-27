@@ -7,7 +7,6 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const app = express();
 
 const allowedOrigins = [
-  'http://localhost:5173',
   'https://subsleuth.vercel.app/'
 ];
 
@@ -33,7 +32,7 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  'http://localhost:3000/auth/google/callback'
+  'http://subsleuth-backend.onrender.com/auth/google/callback'
 );
 
 // --- AUTH ROUTES (UNCHANGED) ---
@@ -54,7 +53,7 @@ app.get('/auth/google/callback', async (req, res) => {
     if (!code) throw new Error('No code received from Google.');
     const { tokens } = await oauth2Client.getToken(code);
     const accessToken = tokens.access_token;
-    res.redirect(`http://localhost:5173/#token=${accessToken}`);
+    res.redirect(`http://https://subsleuth.vercel.app//#token=${accessToken}`);
   } catch (error) {
     console.error('[FATAL ERROR IN CALLBACK]', error.message);
     res.status(500).send('Authentication failed on the server.');
@@ -164,5 +163,6 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Backend server is running on http://localhost:${PORT}`);
 });
+
 
 
